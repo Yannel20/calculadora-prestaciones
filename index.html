@@ -260,15 +260,22 @@
 
         .he-time {
             display: flex;
-            gap: 5px;
+            gap: 8px;
+            width: 100%;
+            align-items: center;
         }
 
-        .he-time input {
-            width: 70px;
+        .he-time input[type="text"] {
+            flex: 1 1 auto;
+            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
         }
 
         .he-time select {
-            width: 75px;
+            flex: 0 0 82px;
+            width: 82px;
+            box-sizing: border-box;
         }
 
         .btn-danger {
@@ -432,12 +439,216 @@
             }
 
             .he-time select {
-                width: 100%;
+                width: 82px;
+                flex: 0 0 82px;
             }
         }
 
     button:disabled { opacity: .45; cursor: not-allowed; transform: none; }
     .btn-modo.activo { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+
+        /* MEJORA VISUAL — solo estilos, sin modificar la configuración ni los cálculos */
+        body {
+            background:
+                radial-gradient(circle at 10% 0%, rgba(37, 99, 235, 0.08), transparent 28%),
+                radial-gradient(circle at 90% 10%, rgba(14, 165, 233, 0.07), transparent 24%),
+                #f6f8fc;
+        }
+
+        header {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #173ea5 0%, #2563eb 55%, #3b82f6 100%);
+            padding: 3rem 1.25rem 2.8rem;
+            border-bottom-left-radius: 28px;
+            border-bottom-right-radius: 28px;
+            box-shadow: 0 12px 30px rgba(30, 64, 175, 0.18);
+        }
+
+        header::before,
+        header::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.09);
+            pointer-events: none;
+        }
+
+        header::before {
+            width: 220px;
+            height: 220px;
+            top: -110px;
+            left: -60px;
+        }
+
+        header::after {
+            width: 300px;
+            height: 300px;
+            right: -110px;
+            bottom: -190px;
+        }
+
+        header h1,
+        header p {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1050px;
+            padding: 0 1.25rem;
+        }
+
+        .card {
+            border: 1px solid rgba(203, 213, 225, 0.8);
+            border-radius: 16px;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 14px 34px rgba(15, 23, 42, 0.09);
+        }
+
+        h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #173ea5;
+            border-bottom: 1px solid #dbe4f0;
+            padding-bottom: 0.75rem;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            border-color: #d1dbe8;
+            border-radius: 10px;
+            background: #fbfdff;
+        }
+
+        input:hover,
+        select:hover {
+            border-color: #9db4d6;
+        }
+
+        .checkbox-group,
+        .radio-inline-group,
+        .radio-card,
+        .sub-card {
+            border-radius: 10px;
+        }
+
+        .checkbox-group {
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
+            transition: all 0.18s ease;
+        }
+
+        .checkbox-group:hover {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+            transform: translateY(-1px);
+        }
+
+        .asuetos-grid {
+            background: linear-gradient(180deg, #fbfdff, #f8fafc);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .he-row {
+            border-radius: 12px;
+            border-color: #dbe4f0;
+            box-shadow: 0 3px 10px rgba(15, 23, 42, 0.04);
+        }
+
+        button {
+            border-radius: 10px;
+            min-height: 48px;
+            box-shadow: 0 5px 12px rgba(15, 23, 42, 0.08);
+        }
+
+        button:hover {
+            box-shadow: 0 8px 16px rgba(15, 23, 42, 0.12);
+        }
+
+        .btn-container {
+            gap: 12px;
+        }
+
+        .results-grid {
+            gap: 18px;
+        }
+
+        .result-card {
+            border-radius: 16px;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+        }
+
+        .notice,
+        .info-box,
+        .alerta-bloqueo {
+            border-radius: 10px;
+        }
+
+        /* MODAL: FÓRMULAS Y BASE LEGAL (solo posicionamiento; usa los estilos existentes) */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            z-index: 1000;
+        }
+
+        .modal-overlay .card {
+            width: 100%;
+            max-width: 1050px;
+            max-height: 90vh;
+            overflow: auto;
+            margin: 0;
+        }
+
+        .formulas-table td {
+            vertical-align: middle;
+        }
+
+        .formulas-table td.td-formula {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #ffffff;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 0.88rem;
+            border-bottom: 1px solid #334155;
+        }
+
+        .modal-overlay .card:hover {
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+        }
+
+        @media (max-width: 700px) {
+            header {
+                padding: 2.2rem 1rem;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+            }
+
+            header h1 {
+                font-size: 1.7rem;
+            }
+
+            .container {
+                padding: 0 0.8rem;
+            }
+        }
     </style>
 </head>
 
@@ -842,16 +1053,16 @@
 
             <div class="asuetos-grid hidden" id="gridAsuetos">
                 <div style="grid-column:1/-1;font-weight:600;color:#64748b;">Seleccione los días de asueto trabajados:</div>
-                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="1 de Enero"> 1 de Enero</label>
-                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="Semana Santa"> Semana Santa</label>
-                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="1 de Mayo"> 1 de Mayo</label>
-                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="10 de Mayo"> 10 de Mayo</label>
-                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="17 de Junio"> 17 de Junio</label>
-                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="6 de Agosto"> 6 de Agosto</label>
-                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="15 de Septiembre"> 15 de Septiembre</label>
-                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="2 de Noviembre"> 2 de Noviembre</label>
-                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="21 de Noviembre (San Miguel)"> 21 de Noviembre (San Miguel)</label>
-                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="25 de Diciembre"> 25 de Diciembre</label>
+                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="1 de Enero (Año Nuevo)"> 1 de Enero (Año Nuevo)</label>
+                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="Semana Santa (Jueves, Viernes y Sábado Santo)"> Semana Santa (Jueves, Viernes y Sábado Santo)</label>
+                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="1 de Mayo (Día del Trabajo)"> 1 de Mayo (Día del Trabajo)</label>
+                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="10 de Mayo (Día de las Madres)"> 10 de Mayo (Día de las Madres)</label>
+                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="17 de Junio (Día del Padre)"> 17 de Junio (Día del Padre)</label>
+                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="6 de Agosto (Día del Divino Salvador del Mundo)"> 6 de Agosto (Día del Divino Salvador del Mundo)</label>
+                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="15 de Septiembre (Día de la Independencia de El Salvador)"> 15 de Septiembre (Día de la Independencia de El Salvador)</label>
+                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="2 de Noviembre (Día de los Difuntos)"> 2 de Noviembre (Día de los Difuntos)</label>
+                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="21 de Noviembre (Día de las Fiestas Patronales de San Miguel)"> 21 de Noviembre (Día de las Fiestas Patronales de San Miguel)</label>
+                <label class="checkbox-group"><input type="checkbox" class="chkAsueto" value="25 de Diciembre (Navidad)"> 25 de Diciembre (Navidad)</label>
             </div>
 
         </div>
@@ -933,6 +1144,9 @@
 
         <h2>6. Aguinaldo</h2>
         <div class="info-box">Se detecta automáticamente si es completo o proporcional según las fechas. Días base: 15 (menos de 3 años), 19 (3 a menos de 10 años) y 21 (10 años o más).</div>
+        <div class="notice" style="margin-top:0;margin-bottom:1rem;">
+            <strong>Calendario 2026 del período de aguinaldo:</strong> del 1 de octubre al 20 de diciembre de 2026. El período anual de referencia del aguinaldo se calcula sobre una base comercial de 360 días.
+        </div>
         <div class="form-grid">
             <div class="form-group"><label for="recibioAguinaldo">¿Recibió el último aguinaldo?</label>
                 <select id="recibioAguinaldo">
@@ -982,7 +1196,6 @@
         </button>
 
 
-        <button type="button" class="btn-secondary" onclick="exportarExcel()">Exportar Excel</button>
 
         <button type="button" class="btn-outline" onclick="comprobanteFirma()">
 
@@ -997,6 +1210,17 @@
             onclick="limpiarFormulario()">
 
             Limpiar
+
+        </button>
+
+
+        <button
+            type="button"
+            class="btn-outline"
+            style="border-color:#f97316;"
+            onclick="abrirModalFormulas()">
+
+            Fórmulas y Base Legal
 
         </button>
 
@@ -1033,6 +1257,37 @@
         <div id="notaResultado" class="notice"></div>
     </div>
 
+</div>
+
+
+<!-- ================================================= -->
+<!-- MODAL: FÓRMULAS Y BASE LEGAL -->
+<!-- ================================================= -->
+
+<div id="modalFormulas" class="modal-overlay hidden" onclick="if (event.target === this) cerrarModalFormulas()">
+    <div class="card" role="dialog" aria-modal="true" aria-labelledby="modalFormulasTitulo">
+        <h2 id="modalFormulasTitulo">Fórmulas y Base Legal</h2>
+        <table class="details-table formulas-table">
+            <thead><tr><th>Concepto</th><th>Base legal</th><th>Fórmula</th></tr></thead>
+            <tbody>
+                <tr><td>Variables base</td><td>—</td><td class="td-formula">SBM = Salario mensual<br>SBD = SBM ÷ 30<br>Hora = SBD ÷ 8<br>SM = Salario mínimo del sector</td></tr>
+                <tr><td>Indemnización por despido injustificado</td><td>Art. 58 del Código de Trabajo.</td><td class="td-formula">Base = MIN(SBM, 4 × SM)<br>Indemnización = Base × Años + (Base ÷ 360) × Días<br>Mínimo = (Base ÷ 30) × 15</td></tr>
+                <tr><td>Renuncia voluntaria</td><td>Arts. 2 y 4 de la Ley Reguladora de la Prestación Económica por Renuncia Voluntaria (2014).</td><td class="td-formula">Requisito: mínimo 2 años de servicio y preaviso<br>Base = MIN(SBM, 2 × SM)<br>Prestación = (Base ÷ 30) × 15 × (Años + Días ÷ 360)</td></tr>
+                <tr><td>Vacaciones proporcionales</td><td>Arts. 177 y 190 del Código de Trabajo.</td><td class="td-formula">Vacación = SBD × 15 × 1.30 × Días ÷ 360</td></tr>
+                <tr><td>Aguinaldo</td><td>Art. 196 del Código de Trabajo.</td><td class="td-formula">Días base = 15 (menos de 3 años) · 19 (3 a menos de 10) · 21 (10 o más)<br>Aguinaldo = (SBD × Días base ÷ 360) × Días computados</td></tr>
+                <tr><td>Horas extras</td><td>Art. 161 del Código de Trabajo (jornada diurna de 6:00 a.m. a 7:00 p.m.).</td><td class="td-formula">Diurna = Hora × 2 × Horas diurnas<br>Nocturna = Hora × 1.25 × 2 × Horas nocturnas</td></tr>
+                <tr><td>Días de asueto laborados</td><td>Art. 193 del Código de Trabajo.</td><td class="td-formula">Asueto = SBD × 2 × Días</td></tr>
+                <tr><td>Descanso semanal laborado</td><td>Arts. 171 y 174 del Código de Trabajo.</td><td class="td-formula">Descanso = SBD × 1.5 × Días</td></tr>
+                <tr style="font-weight:700"><td>TOTAL 1 - Sin deducciones AFP/ISSS</td><td></td><td class="td-formula">Indemnización + Vacaciones + Aguinaldo + Horas extras + Asuetos + Descansos</td></tr>
+                <tr><td>ISSS (3%, máx. $30.00)</td><td>Deducción</td><td class="td-formula">ISSS = MIN(SBM × 3%, $30.00)</td></tr>
+                <tr><td>AFP (7.25%)</td><td>Deducción</td><td class="td-formula">AFP = SBM × 7.25%</td></tr>
+                <tr style="font-weight:700"><td>TOTAL 2 - Con deducciones AFP/ISSS</td><td></td><td class="td-formula">Total 1 − ISSS − AFP</td></tr>
+            </tbody>
+        </table>
+        <div class="btn-container" style="margin-top:1.5rem;">
+            <button type="button" class="btn-secondary" onclick="cerrarModalFormulas()">Cerrar</button>
+        </div>
+    </div>
 </div>
 
 
@@ -1132,17 +1387,16 @@ function agregarFilaHE() {
             <div class="he-time">
 
                 <input
-                    type="number"
+                    type="text"
                     class="he-hora-inicio"
-                    min="1"
-                    max="12"
-                    placeholder="5">
+                    inputmode="numeric"
+                    maxlength="5"
+                    placeholder="hh:mm"
+                    aria-label="Hora de inicio">
 
-                <select class="he-ampm-inicio">
-
-                    <option value="am">a.m.</option>
-                    <option value="pm" selected>p.m.</option>
-
+                <select class="he-ampm-inicio" aria-label="AM o PM">
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
                 </select>
 
             </div>
@@ -1157,17 +1411,16 @@ function agregarFilaHE() {
             <div class="he-time">
 
                 <input
-                    type="number"
+                    type="text"
                     class="he-hora-fin"
-                    min="1"
-                    max="12"
-                    placeholder="8">
+                    inputmode="numeric"
+                    maxlength="5"
+                    placeholder="hh:mm"
+                    aria-label="Hora de fin">
 
-                <select class="he-ampm-fin">
-
-                    <option value="am">a.m.</option>
-                    <option value="pm" selected>p.m.</option>
-
+                <select class="he-ampm-fin" aria-label="AM o PM">
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
                 </select>
 
             </div>
@@ -1202,23 +1455,28 @@ function agregarFilaHE() {
 
 function convertirHora12a24(hora, ampm) {
 
-    let h = parseInt(hora);
+    // Acepta 8:30, 08:30, 8:05, etc.
+    // AM/PM se mantiene en la casilla independiente.
+    const texto = String(hora || "").trim().replace(/\s+/g, "").replace(".", ":");
+    const periodo = String(ampm || "").trim().toUpperCase();
+    const partes = texto.split(":");
 
-    if (!h || h < 1 || h > 12) {
+    if (!texto || partes.length !== 2 || !["AM", "PM"].includes(periodo)) {
         return null;
     }
 
-    if (ampm === "am") {
+    const h = Number(partes[0]);
+    const m = Number(partes[1]);
 
-        if (h === 12) h = 0;
-
-    } else {
-
-        if (h !== 12) h += 12;
-
+    if (!Number.isInteger(h) || !Number.isInteger(m) || h < 1 || h > 12 || m < 0 || m > 59) {
+        return null;
     }
 
-    return h;
+    let hora24 = h;
+    if (periodo === "AM" && hora24 === 12) hora24 = 0;
+    if (periodo === "PM" && hora24 !== 12) hora24 += 12;
+
+    return hora24 * 60 + m;
 
 }
 
@@ -1229,75 +1487,51 @@ function convertirHora12a24(hora, ampm) {
 
 function calcularHorasJornada(inicioHora, inicioAmPm, finHora, finAmPm) {
 
-    const inicio = convertirHora12a24(
-        inicioHora,
-        inicioAmPm
-    );
+    const inicio = convertirHora12a24(inicioHora, inicioAmPm);
 
-    const finOriginal = convertirHora12a24(
-        finHora,
-        finAmPm
-    );
-
+    const finOriginal = convertirHora12a24(finHora, finAmPm);
 
     if (inicio === null || finOriginal === null) {
         return null;
     }
 
-
     let fin = finOriginal;
 
-
-    // Si termina antes o igual a la hora inicial,
-    // asumimos que terminó al día siguiente.
+    // Si termina antes que la hora inicial, asumimos que terminó al día siguiente.
     if (fin === inicio) return null;
 
     if (fin < inicio) {
-        fin += 24;
+        fin += 24 * 60;
     }
-
 
     let diurnas = 0;
     let nocturnas = 0;
 
-
-    // Revisamos cada intervalo de una hora.
     // Jornada diurna: 06:00 - 19:00
     // Jornada nocturna: 19:00 - 06:00
-
     let actual = inicio;
 
     while (actual < fin) {
 
-        const siguiente = Math.min(
-            actual + 1,
-            fin
-        );
-
-        const horaReferencia = actual % 24;
+        const siguiente = Math.min(actual + 1, fin);
+        const horaReferencia = (actual % (24 * 60));
 
         if (
-            horaReferencia >= 6 &&
-            horaReferencia < 19
+            horaReferencia >= 6 * 60 &&
+            horaReferencia < 19 * 60
         ) {
-
             diurnas += siguiente - actual;
-
         } else {
-
             nocturnas += siguiente - actual;
-
         }
 
         actual = siguiente;
-
     }
 
-
     return {
-        diurnas,
-        nocturnas,
-        total: diurnas + nocturnas
+        diurnas: diurnas / 60,
+        nocturnas: nocturnas / 60,
+        total: (diurnas + nocturnas) / 60
     };
 
 }
@@ -1323,13 +1557,13 @@ function obtenerHorasExtras() {
         const hi =
             fila.querySelector(".he-hora-inicio").value;
 
-        const ai =
-            fila.querySelector(".he-ampm-inicio").value;
-
         const hf =
             fila.querySelector(".he-hora-fin").value;
 
-        const af =
+        const ampmInicio =
+            fila.querySelector(".he-ampm-inicio").value;
+
+        const ampmFin =
             fila.querySelector(".he-ampm-fin").value;
 
 
@@ -1342,9 +1576,9 @@ function obtenerHorasExtras() {
         const horas =
             calcularHorasJornada(
                 hi,
-                ai,
+                ampmInicio,
                 hf,
-                af
+                ampmFin
             );
 
 
@@ -1360,10 +1594,10 @@ function obtenerHorasExtras() {
             fecha,
 
             inicio:
-                `${hi || "--"} ${ai === "am" ? "a.m." : "p.m."}`,
+                hi || "--:--",
 
             fin:
-                `${hf || "--"} ${af === "am" ? "a.m." : "p.m."}`,
+                hf || "--:--",
 
             diurnas: horas.diurnas,
 
@@ -1454,7 +1688,14 @@ function aguinaldoInfo(a) {
     const dias = Math.min((d.anios * 12 + d.meses) * 30 + d.dias, 360);
     let cicloReal = new Date(a.fin.getFullYear(), 11, 12);
     if (cicloReal > a.fin) cicloReal = new Date(a.fin.getFullYear() - 1, 11, 12);
-    return { diasBase, dias, completo: dias >= 360, desde: ci, cicloReal };
+
+    return {
+        diasBase,
+        dias,
+        completo: dias >= 360,
+        desde: ci,
+        cicloReal
+    };
 }
 
 // Aguinaldo del último período cerrado (12 dic a 11 dic anterior), si no fue pagado
@@ -1499,7 +1740,7 @@ function renunciaBloqueada() {
 function validarRenuncia() {
     const b = renunciaBloqueada();
     $("alertaBloqueo").classList.toggle("hidden", !b);
-    document.querySelectorAll(".btn-container button:not([onclick^='limpiar'])").forEach(x => x.disabled = b);
+    document.querySelectorAll(".btn-container button:not([onclick^='limpiar']):not([onclick^='abrirModal'])").forEach(x => x.disabled = b);
     if (b) {
         $("resultadosContainer").classList.add("hidden");
         $("mensajeError").classList.add("hidden");
@@ -1602,7 +1843,7 @@ function calcularLiquidacion(scroll = true) {
         }
         const pHED = r2(hora * 2 * hed), pHEN = r2(hora * 1.25 * 2 * hen), pHE = r2(pHED + pHEN);
 
-        // Asueto 21 nov: SBD x 2 ; Descanso semanal: SBD x 1.5
+        // Asuetos laborados: SBD x 2 ; Descanso semanal: SBD x 1.5
         const asuSel = document.querySelector('input[name="tieneAsuetos"]:checked').value === "si"
             ? [...document.querySelectorAll(".chkAsueto:checked")].map(c => c.value) : [];
         const asu = asuSel.length;
@@ -1619,18 +1860,18 @@ function calcularLiquidacion(scroll = true) {
         const total2 = r2(total1 - ded);
 
         const filas = [
-            ["Indemnización / compensación", detInd, indem],
-            ["Vacaciones proporcionales", `${f} días desde el último aniversario, con 30% de recargo`, vac],
-            [ag.completo ? "Aguinaldo completo" : "Aguinaldo proporcional", `${ag.diasBase} días base · ${ag.dias} de 360 días`, aguin]
+            ["Indemnización / compensación", `${detInd} · Base legal: Art. 58 del Código de Trabajo.`, indem],
+            ["Vacaciones proporcionales", `${f} días desde el último aniversario, con 30% de recargo · Base legal: Art. 177 y 190 del Código de Trabajo.`, vac],
+            [ag.completo ? "Aguinaldo completo" : "Aguinaldo proporcional", `${ag.diasBase} días base · ${ag.dias} de 360 días · Base legal: Arts. 196 del Código de Trabajo.`, aguin]
         ];
-        if (pHED > 0) filas.push(["Horas extras diurnas", `${hed.toFixed(2)} h`, pHED]);
-        if (pHEN > 0) filas.push(["Horas extras nocturnas", `${hen.toFixed(2)} h`, pHEN]);
-        if (pAsu > 0) filas.push(["Días de asueto laborados", `${asu} día(s) x 2: ${asuSel.join(", ")}`, pAsu]);
-        if (pDesc > 0) filas.push(["Descanso semanal laborado", `${desc} día(s) x 1.5`, pDesc]);
+        if (pHED > 0) filas.push(["Horas extras diurnas", `${hed.toFixed(2)} h · Base legal: Art. 169 del Código de Trabajo.`, pHED]);
+        if (pHEN > 0) filas.push(["Horas extras nocturnas", `${hen.toFixed(2)} h · Base legal: Art. 168 del Código de Trabajo.`, pHEN]);
+        if (pAsu > 0) filas.push(["Días de asueto laborados", `${asu} día(s) x 2: ${asuSel.join(", ")} · Base legal: Arts. 193 del Código de Trabajo.`, pAsu]);
+        if (pDesc > 0) filas.push(["Descanso semanal laborado", `${desc} día(s) x 1.5 · Base legal: Art. 171 y 174 del Código de Trabajo.`, pDesc]);
 
         if (aguPrev > 0) filas.splice(3, 0, [
             "Aguinaldo anterior pendiente (" + (prevAg.completo ? "completo" : "proporcional") + ")",
-            `${prevAg.diasBase} días base · ${prevAg.dias} de 360 días`, aguPrev]);
+            `${prevAg.diasBase} días base · ${prevAg.dias} de 360 días · Base legal: Arts. 196 y 198 del Código de Trabajo.`, aguPrev]);
 
         // Pantalla
         $("rT1").textContent = dinero(total1);
@@ -1646,7 +1887,7 @@ function calcularLiquidacion(scroll = true) {
         $("dAFP").textContent = dinero(afp);
 
         
-        $("notaResultado").textContent = "Cálculo referencial. ISSS y AFP se calculan sobre el salario mensual.";
+        $("notaResultado").textContent = "Base legal mostrada en cada resultado: Código de Trabajo de El Salvador (Arts.58, 161, 166, 168, 169, 171, 174, 177, 190, 193, 196 y 198, según el concepto). Cálculo referencial. ISSS y AFP se calculan sobre el salario mensual.";
         $("resultadosContainer").classList.remove("hidden");
 
         const causaTxt = causa === "despido" ? "Despido injustificado" : "Renuncia voluntaria";
@@ -1855,11 +2096,30 @@ function limpiarFormulario() {
 }
 
 /* =========================================================
+   MODAL: FÓRMULAS Y BASE LEGAL
+========================================================= */
+function abrirModalFormulas() {
+    $("modalFormulas").classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+}
+
+function cerrarModalFormulas() {
+    $("modalFormulas").classList.add("hidden");
+    document.body.style.overflow = "";
+}
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") cerrarModalFormulas();
+});
+
+/* =========================================================
    EVENTOS INICIALES
 ========================================================= */
 document.addEventListener("DOMContentLoaded", function () {
-    const hoy = new Date().toISOString().split("T")[0];
-    document.querySelectorAll('input[type="date"]').forEach(i => { if (i.id !== "fechaFin") i.max = hoy; });
+    document.querySelectorAll('input[type="date"]').forEach(i => {
+        i.min = "2001-01-01";
+        i.max = "2026-12-31";
+    });
 
     $("fechaInicio").addEventListener("change", calcularAntiguedad);
     $("fechaFin").addEventListener("change", calcularAntiguedad);
